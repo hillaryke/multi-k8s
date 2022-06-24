@@ -7,10 +7,16 @@ jobs:
   deploy-to-aws-eks:
     runs-on: macos-latest
     steps:
-      # install eks
+      - name: Checkout latest repo
+        uses: actions/checkout@v3
+
       - name: install eksctl
         run: |
           curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
           sudo mv /tmp/eksctl /usr/local/bin
-      - name: print eksctl version
-        run: eksctl version
+
+      - name: AWS CLI
+        uses: ItsKarma/aws-cli@v1.70.0
+
+      - name: print cli version
+        run: aws version
