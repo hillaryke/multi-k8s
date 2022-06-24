@@ -1,6 +1,16 @@
 name: Deploy kubernetes cluster to Amazon EKS
-
 on:
   push:
     branches:
       - main
+jobs:
+  deploy-to-aws-eks:
+    runs-on: macos-latest
+    steps:
+      # install eks
+      - name: install eksctl
+        run: |
+          curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+          sudo mv /tmp/eksctl /usr/local/bin
+      - name: print eksctl version
+        run: eksctl version
