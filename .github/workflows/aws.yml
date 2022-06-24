@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   deploy-to-aws-eks:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout latest repo
         uses: actions/checkout@v3
