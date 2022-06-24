@@ -16,7 +16,7 @@ jobs:
           sudo mv /tmp/eksctl /usr/local/bin
 
       - name: AWS CLI
-        uses: ItsKarma/aws-cli@v1.70.0
+        uses: chrislennon/action-aws-cli@1.1
 
       - name: print cli version
         run: aws --version
