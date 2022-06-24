@@ -1,0 +1,6 @@
+name: Deploy kubernetes cluster to Amazon EKS
+
+on:
+  push:
+    branches:
+      - main
